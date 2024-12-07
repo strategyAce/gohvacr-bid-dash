@@ -3,7 +3,11 @@ import pandas as pd
 from app.plots import plot_agency_counts, plot_bids_time, plot_brand_pie
 from app.auth import authenticate
 
-PATH = 'data/GOHVACRSUPPLY Bid Tracker.csv'
+# Constants
+BANNER_PATH = "StratAceBanner_Logo.png"
+LOGO_PATH = "gohvacrsupply_logo.png"
+DATA_PATH = 'data/GOHVACRSUPPLY Bid Tracker.csv'
+url = "https://strategyace.win/"
 
 def main():
     if "logged_in" not in st.session_state:
@@ -21,9 +25,15 @@ def main():
             else:
                 st.error("Invalid username or password.")
     else:
-        st.title("Bid Dashboard")
+        st.image(BANNER_PATH,width=None)
+        col1, col2 = columns(2)
+        with col1:
+            st.title("Bid Dashboard")
+        with col2:
+            st.image(LOGO_PATH, width=250)
+        
         fiscal_year = 2024
-        df = pd.read_csv(PATH)
+        df = pd.read_csv(DATA_PATH)
         df['Date Bid Submitted'] = pd.to_datetime(df['Date Bid Submitted'], format='%m/%d/%Y', errors='coerce')
         filtered_df = df[pd.notnull(df['Date Bid Submitted'])]
         filtered_df = filtered_df[
@@ -35,6 +45,11 @@ def main():
         plot_agency_counts(filtered_df)
         plot_bids_time(filtered_df)
         plot_brand_pie(filtered_df)
+
+        # Footer
+        st.divider()
+        st.image(BANNER_PATH,width=300)
+        st.write(url)
 
 if __name__ == "__main__":
     main()
