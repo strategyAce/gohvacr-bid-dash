@@ -1,0 +1,47 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+
+# Virtual environment folders
+venv/
+.env/
+
+# Streamlit-specific temporary files
+.streamlit/
+
+# Python environment configuration
+*.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.sqlite
+*.tmp
+*.pid
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Images or large files not meant for Git
+Campaign-Prioritizer.png
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Test outputs and debugging files
+*.coverage
+*.pytest_cache/
+
+# General backups
+*.bak
+*.swp
+*.swo
+
+# Docker and CI/CD configurations (if not using in repo)
+docker-compose.override.yml
