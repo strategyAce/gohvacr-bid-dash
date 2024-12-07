@@ -27,11 +27,12 @@ def main():
     else:
         st.image(BANNER_PATH,width=None)
         st.subheader(" ")
-        col1, col2 = st.columns(2)
-        with col1:
-            st.title("Bid Dashboard")
-        with col2:
-            st.image(LOGO_PATH, width=250)
+        st.image(LOGO_PATH, width=400)
+        st.title("Bid Dashboard")
+        st.write("This is a product of Strategy Ace LLC")
+        st.write("version: BETAv0.1")
+        st.divider()
+            
         
         fiscal_year = 2024
         df = pd.read_csv(DATA_PATH)
