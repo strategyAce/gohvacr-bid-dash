@@ -26,24 +26,61 @@ def main():
                 st.error("Invalid username or password.")
     else:
         st.image(BANNER_PATH,width=None)
+        st.divider()
         st.subheader(" ")
         st.image(LOGO_PATH, width=400)
-        st.title("Bid Dashboard")
+        st.title("FY2025 Government Bid Dashboard Tool")
         st.write("This is a product of Strategy Ace LLC")
         st.write("version: BETAv0.1")
         st.divider()
-            
         
-        fiscal_year = 2024
+        #Input correct fiscal year value to display
+        fiscal_year = 2024   #<- Update this value
+        
         df = pd.read_csv(DATA_PATH)
+        #Convert Dates to the right format
         df['Date Bid Submitted'] = pd.to_datetime(df['Date Bid Submitted'], format='%m/%d/%Y', errors='coerce')
+        #Filter out entries without submission dates
         filtered_df = df[pd.notnull(df['Date Bid Submitted'])]
+        #filter for correct fiscal year
         filtered_df = filtered_df[
             (filtered_df['Date Bid Submitted'] >= f'01/01/{fiscal_year}') &
             (filtered_df['Date Bid Submitted'] < f'12/31/{fiscal_year + 1}')
         ]
-        total_bids = len(filtered_df)
-        st.metric("Total Bids", total_bids)
+        # Filter the winning entries
+        win_df = filtered_df[(filtered_df['Award?'] == 'YES')]
+        # Filter the losing entries
+        lose_df = filtered_df[(filtered_df['Award?'] == 'NO')]
+
+        #Calculate Metrics/Values
+        total_bids = len(filtered_df['Date Bid Submitted'])
+        total_wins = len(win_df['Award?'])
+        total_win_val = round(win_df['Total Value'].sum())
+        total_win_val = f"${total_win_val:,.2f}"
+        total_lose_val = lose_df['Total Value'].sum()
+        Pwin = round((total_wins/total_bids)*100,1)
+
+        #Display top metrics
+        col1, col2 = st.columns(2)
+        with col1:
+            with st.container(border=True):
+                st.subheader("Total Bids")
+                st.metric("Total Bids", total_bids, label_visibility="hidden")
+        with col2:
+            with st.container(border=True):
+                st.subheader("Total Awards")
+                st.metric("Total Awards", total_wins, label_visibility="hidden")
+        col1, col2 = st.columns(2)
+        with col1:
+            with st.container(border=True):
+                st.subheader("Total Awarded Value")
+                st.metric("Total Awarded Value", total_win_val, label_visibility="hidden")
+        with col2:
+            with st.container(border=True):
+                st.subheader("Win %")
+                st.metric("Win %", Pwin, label_visibility="hidden")
+
+        #Display large plots
         plot_agency_counts(filtered_df)
         plot_bids_time(filtered_df)
         plot_brand_pie(filtered_df)
