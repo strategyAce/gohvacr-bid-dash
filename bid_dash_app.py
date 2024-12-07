@@ -27,7 +27,7 @@ def main():
     else:
         st.image(BANNER_PATH,width=None)
         st.subheader(" ")
-        col1, col2 = columns(2)
+        col1, col2 = st.columns(2)
         with col1:
             st.title("Bid Dashboard")
         with col2:
