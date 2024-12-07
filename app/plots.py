@@ -9,9 +9,13 @@ def plot_agency_counts(df):
 
 def plot_bids_time(df):
     df['Month'] = df['Date Bid Submitted'].dt.month
-    monthly_bids = df.groupby('Month')['Date Bid Submitted'].count().reset_index()
-    monthly_bids.columns = ['Month', 'Total Bids']
-    fig = px.line(monthly_bids, x='Month', y='Total Bids', title='Bids by Month')
+    df['Year'] = df['Date Bid Submitted'].dt.year
+    # Group the data by month and count the number of bids
+    monthly_bids_year = df.groupby('Month')['Date Bid Submitted'].count().reset_index()
+    monthly_bids_year.columns = ['Month', 'Total Bids']
+    # Calculate the cumulative sum of bids
+    monthly_bids_year['Cumulative Bids'] = monthly_bids_year['Total Bids'].cumsum() 
+    fig = px.line(monthly_bids, x='Month', y=['Total Bids', 'Cumulative Bids'], title='Bids by Month')
     st.plotly_chart(fig)
 
 def plot_brand_pie(df):
