@@ -5,7 +5,7 @@ from app.auth import authenticate
 
 # Constants
 BANNER_PATH = "StratAceBanner_Logo.png"
-LOGO_PATH = "gohvacrsupply_logo.png"
+LOGO_PATH = "gohvacrsupply_logo.svg"
 DATA_PATH = 'data/GOHVACRSUPPLY Bid Tracker.csv'
 url = "https://strategyace.win/"
 
