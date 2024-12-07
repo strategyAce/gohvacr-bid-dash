@@ -25,15 +25,10 @@ def main():
             else:
                 st.error("Invalid username or password.")
     else:
-        st.image(BANNER_PATH,width=None)
+        st.image(LOGO_PATH,width=None)
         st.divider()
         st.subheader(" ")
-        
         st.title("FY2025 Government Bid Dashboard")
-        left,cent,right = st.columns(3)
-        with cent:
-            st.image(LOGO_PATH, width=400)
-        st.write("This is a product of Strategy Ace LLC")
         st.write("version: BETAv0.1")
         st.divider()
         
@@ -95,6 +90,7 @@ def main():
         # Footer
         st.divider()
         st.image(BANNER_PATH,width=300)
+        st.write("This is a product of Strategy Ace LLC")
         st.write(url)
 
 if __name__ == "__main__":
