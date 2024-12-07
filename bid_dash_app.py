@@ -30,7 +30,9 @@ def main():
         st.subheader(" ")
         
         st.title("FY2025 Government Bid Dashboard")
-        st.image(LOGO_PATH, width=300)
+        left,cent,right = st.columns(3)
+        with cent:
+            st.image(LOGO_PATH, width=400)
         st.write("This is a product of Strategy Ace LLC")
         st.write("version: BETAv0.1")
         st.divider()
