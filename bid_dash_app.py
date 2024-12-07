@@ -27,7 +27,7 @@ def main():
     else:
         st.image(LOGO_PATH,width=700)
         st.write(" ")
-        st.title("FY2025 Government Bid Dashboard")
+        st.title("FY2024 Government Bid Dashboard")
         st.divider()
         
         #Input correct fiscal year value to display
