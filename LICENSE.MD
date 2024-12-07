@@ -1,7 +1,7 @@
 # Proprietary Software License Agreement
 
-**Effective Date:** [Insert Date]  
-**Software Name:** [Your Software Tool Name]  
+**Effective Date:** 12/06/2024
+**Software Name:** Bid Dashboard  
 **Owner:** Strategy Ace LLC 
 
 ---
