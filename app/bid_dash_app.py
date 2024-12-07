@@ -3,7 +3,7 @@ import pandas as pd
 from app.plots import plot_agency_counts, plot_bids_time, plot_brand_pie
 from app.auth import authenticate
 
-PATH = 'data/sample_data.csv'
+PATH = 'data/GOHVACRSUPPLY Bid Tracker.csv'
 
 def main():
     if "logged_in" not in st.session_state:
