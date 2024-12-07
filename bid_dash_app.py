@@ -26,10 +26,8 @@ def main():
                 st.error("Invalid username or password.")
     else:
         st.image(LOGO_PATH,width=700)
-        #st.divider()
         st.write(" ")
         st.title("FY2025 Government Bid Dashboard")
-        st.write("version: BETAv0.1")
         st.divider()
         
         #Input correct fiscal year value to display
@@ -91,6 +89,7 @@ def main():
         st.divider()
         st.image(BANNER_PATH,width=300)
         st.write("This is a product of Strategy Ace LLC")
+        st.write("version: BETAv0.1")
         st.write(url)
 
 if __name__ == "__main__":
