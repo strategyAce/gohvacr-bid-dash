@@ -28,8 +28,9 @@ def main():
         st.image(BANNER_PATH,width=None)
         st.divider()
         st.subheader(" ")
-        st.image(LOGO_PATH, width=400)
-        st.title("FY2025 Government Bid Dashboard Tool")
+        
+        st.title("FY2025 Government Bid Dashboard")
+        st.image(LOGO_PATH, width=300)
         st.write("This is a product of Strategy Ace LLC")
         st.write("version: BETAv0.1")
         st.divider()
@@ -37,6 +38,7 @@ def main():
         #Input correct fiscal year value to display
         fiscal_year = 2024   #<- Update this value
         
+        #Read in latest CSV File Data
         df = pd.read_csv(DATA_PATH)
         #Convert Dates to the right format
         df['Date Bid Submitted'] = pd.to_datetime(df['Date Bid Submitted'], format='%m/%d/%Y', errors='coerce')
@@ -60,6 +62,9 @@ def main():
         total_lose_val = lose_df['Total Value'].sum()
         Pwin = round((total_wins/total_bids)*100,1)
 
+        #Show latest update date
+        st.subheader("Data Last Updated On: 12/06/2024")
+        
         #Display top metrics
         col1, col2 = st.columns(2)
         with col1:
