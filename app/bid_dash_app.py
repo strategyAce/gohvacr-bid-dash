@@ -26,6 +26,7 @@ def main():
                 st.error("Invalid username or password.")
     else:
         st.image(BANNER_PATH,width=None)
+        st.subheader(" ")
         col1, col2 = columns(2)
         with col1:
             st.title("Bid Dashboard")
