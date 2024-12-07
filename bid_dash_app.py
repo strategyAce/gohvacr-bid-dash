@@ -25,8 +25,8 @@ def main():
             else:
                 st.error("Invalid username or password.")
     else:
-        st.image(LOGO_PATH,width=None)
-        st.divider()
+        st.image(LOGO_PATH,width=800)
+        #st.divider()
         st.subheader(" ")
         st.title("FY2025 Government Bid Dashboard")
         st.write("version: BETAv0.1")
