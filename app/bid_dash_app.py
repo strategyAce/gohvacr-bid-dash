@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-from app.plots import plot_agency_counts, plot_bids_time, plot_brand_pie
-from app.auth import authenticate
+from .plots import plot_agency_counts, plot_bids_time, plot_brand_pie
+from .auth import authenticate
 
 # Constants
 BANNER_PATH = "StratAceBanner_Logo.png"
