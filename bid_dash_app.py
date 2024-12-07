@@ -58,7 +58,7 @@ def main():
         Pwin = round((total_wins/total_bids)*100,1)
 
         #Show latest update date
-        st.subheader("blue[Data Last Updated On: 12/06/2024]")
+        st.subheader(":blue[Data Last Updated On: 12/06/2024]")
         
         #Display top metrics
         col1, col2 = st.columns(2)
