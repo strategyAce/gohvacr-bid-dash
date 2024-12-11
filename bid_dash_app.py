@@ -31,6 +31,9 @@ def main():
         st.write(" ")
         st.title("FY2024 Government Bid Dashboard")
         st.divider()
+
+        with st.sidebar:
+            st.subheader("Additional Fiscal Year Results")
         
         #Input correct fiscal year value to display
         fiscal_year = 2024   #<- Update this value
