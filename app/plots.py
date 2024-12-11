@@ -12,9 +12,9 @@ def plot_bids_time(df):
     df['Year'] = df['Date Bid Submitted'].dt.year
     # Group the data by month and count the number of bids
     monthly_bids_year = df.groupby('Month')['Date Bid Submitted'].count().reset_index()
-    monthly_bids_year.columns = ['Month', 'Total Bids']
+    monthly_bids_year.columns = ['Month', 'Monthly Bids']
     # Calculate the cumulative sum of bids
-    monthly_bids_year['Cumulative Bids'] = monthly_bids_year['Total Bids'].cumsum() 
+    monthly_bids_year['Cumulative Bids'] = monthly_bids_year['Monthly Bids'].cumsum() 
     fig = px.line(monthly_bids_year, x='Month', y=['Monthly Bids', 'Cumulative Bids'], title='Bids by Month')
     st.plotly_chart(fig)
 
