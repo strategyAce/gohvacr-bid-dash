@@ -3,6 +3,8 @@ import pandas as pd
 from app.plots import plot_agency_counts, plot_bids_time, plot_brand_pie
 from app.auth import authenticate
 
+st.set_page_config(page_title="2023 Results", page_icon="📈")
+
 # Constants
 BANNER_PATH = "../StratAceBanner_Logo.png"
 LOGO_PATH = "../gohvacrsupply_logo.svg"
