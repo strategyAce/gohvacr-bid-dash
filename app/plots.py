@@ -16,6 +16,8 @@ def plot_bids_time(df):
     # Calculate the cumulative sum of bids
     monthly_bids_year['Cumulative Bids'] = monthly_bids_year['Monthly Bids'].cumsum() 
     fig = px.line(monthly_bids_year, x='Month', y=['Monthly Bids', 'Cumulative Bids'], title='Bids by Month')
+    # Update x-axis to ensure months are in chronological order
+    fig.update_layout(xaxis=dict(categoryorder='array', categoryarray=list(calendar.month_name[1:])))
     st.plotly_chart(fig)
 
 def plot_brand_pie(df):
