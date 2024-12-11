@@ -6,9 +6,9 @@ from app.auth import authenticate
 st.set_page_config(page_title="2023 Results", page_icon="📈")
 
 # Constants
-BANNER_PATH = "../StratAceBanner_Logo.png"
-LOGO_PATH = "../gohvacrsupply_logo.svg"
-DATA_PATH = '../data/GOHVACRSUPPLY Bid Tracker.csv'
+BANNER_PATH = "StratAceBanner_Logo.png"
+LOGO_PATH = "gohvacrsupply_logo.svg"
+DATA_PATH = 'data/GOHVACRSUPPLY Bid Tracker.csv'
 url = "https://strategyace.win/"
 
 def main():
